@@ -79,8 +79,7 @@ Name          :${this.fullName}
 Birthday      :${this.birthday}
 Address       :${this.address}
 Class Name    :${this.className}
-Student Number:${this.studentNumber}
-Password      :${this.password}`
+Student Number:${this.studentNumber}`
   );
 
   ortala("");
@@ -292,7 +291,12 @@ function addStudent() {
     password,
     notes
   );
-  console.log("Student successfully registered!");
+
+  ortala("");
+
+  console.log(`
+  Student successfully registered!
+  Temporary password: ${newStudent.password}`);
   newStudent.showInfos();
   students.push(newStudent);
   allStaff.push(newStudent);
@@ -403,35 +407,40 @@ function changePassword() {
 
 function studentAllNotes() {
   let index;
-  console.log(
-    "Please enter the number of the student whose grades you want to see:"
-  );
+  let realStudent;
 
-  let numberEnteredStudent = parseInt(
-    prompt(
-      "Please enter the number of the student whose grades you want to see:"
-    )
-  );
+    if(whoIs==="director"){
 
-  for (const props in students) {
-    if (students[props].studentNumber === numberEnteredStudent) {
-      index = props;
-      break;
+        let numberEnteredStudent = parseInt(
+          prompt(
+            "Please enter the number of the student whose grades you want to see:"
+          )
+        );
+      
+        for (const props in students) {
+          if (students[props].studentNumber === numberEnteredStudent) {
+            index = props;
+            break;
+          }
+        }
+        realStudent = students[index];
+
+    
+    }else if(whoIs==="student"){
+
+        realStudent = correctEncryptedPersonObject;
     }
-  }
 
 
-  ortala(`${students[index].fullName.toUpperCase()} GRADE INFORMATION`);
+  ortala(`${realStudent.fullName.toUpperCase()} GRADE INFORMATION`);
 
   console.log(`
-Math          :${students[index].notes.math[0]}---${students[index].notes.math[1]}
-Music         :${students[index].notes.music[0]}---${students[index].notes.music[1]}
-English       :${students[index].notes.english[0]}---${students[index].notes.english[1]}
-History       :${students[index].notes.history[0]}---${students[index].notes.history[1]}
+Math          :${realStudent.notes.math[0]}---${realStudent.notes.math[1]}
+Music         :${realStudent.notes.music[0]}---${realStudent.notes.music[1]}
+English       :${realStudent.notes.english[0]}---${realStudent.notes.english[1]}
+History       :${realStudent.notes.history[0]}---${realStudent.notes.history[1]}
 ------------------------
-Not Avarage   :${students[
-      index
-    ].avarageGrade()}`
+Not Avarage   :${realStudent.avarageGrade()}`
   );
 
   ortala("");
@@ -510,21 +519,34 @@ function grading() {
   teacherEvents();
 }
 
-function showTeacherInfos() {
-  const teacher = correctEncryptedPersonObject;
+function showPersonInfos() {
+    
+    const person = correctEncryptedPersonObject;
 
-  ortala(`${teacher.name} ${teacher.surname}`)
+    
+    
+    ortala(`${person.name} ${person.surname}`)
+    
+    if(whoIs==="teacher"){
+console.log(`
+      Branch           : ${
+        person.branch.substring(0, 1).toUpperCase() +
+        person.branch.substring(1).toLowerCase()}
+      Assigned Classes : ${person.relatedClasses}`)}
 
-  console.log(`
-  Branch           : ${
-    teacher.branch.substring(0, 1).toUpperCase() +
-    teacher.branch.substring(1).toLowerCase()
-  }
-  Birthday         : ${teacher.birthday}
-  Position         : ${teacher.position}
-  Address          : ${teacher.address}
-  Assigned Classes : ${teacher.relatedClasses}  
-  `);
+    if(whoIs==="student"){
+        console.log(`
+      Student Number   : ${person.studentNumber}
+      Class Name       : ${person.className}`)}    
+      
+      
+      console.log(`        
+      Birthday         : ${person.birthday}
+      Position         : ${person.position}
+      Address          : ${person.address}
+      Email            : ${person.mailAddress}
+      Password         : ${person.password}`
+          );
 
   ortala("");
 }
@@ -596,6 +618,7 @@ function readMessage() {
 
   sendPersonEvents();
 }
+
 
 homePage();
 
@@ -791,7 +814,7 @@ function teacherEvents() {
 
   switch (choice) {
     case 1:
-      showTeacherInfos();
+      showPersonInfos();
       teacherEvents();
       break;
 
@@ -828,10 +851,11 @@ function teacherEvents() {
 function studentEvents() {
 
   console.log("Press 1 to change your password:");
-  console.log("-----");
+  console.log("Press 2 to see your Notes");
   console.log("Press 3 to return to the homepage:");
   console.log("Press 4 to send message:");
   console.log("Press 5 to read your message:");
+  console.log("Press 6 to see your informations:");
 
   ortala("");
 
@@ -844,6 +868,7 @@ function studentEvents() {
       break;
 
     case 2:
+      studentAllNotes();
       studentEvents();
       break;
 
@@ -857,6 +882,11 @@ function studentEvents() {
 
     case 5:
       readMessage();
+      break;
+
+    case 6:
+      showPersonInfos();
+      studentEvents();
       break;
   }
 

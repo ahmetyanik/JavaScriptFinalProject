@@ -1,0 +1,23 @@
+{
+  "name": "javascriptfinalproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmetyanik/JavaScriptFinalProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmetyanik/JavaScriptFinalProject/issues"
+  },
+  "homepage": "https://github.com/ahmetyanik/JavaScriptFinalProject#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}

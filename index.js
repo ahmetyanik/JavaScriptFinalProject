@@ -1,8 +1,7 @@
+import Person from "./Classes/Person.js";
+import ps from "prompt-sync";
 
-const ps = require("prompt-sync");
 const prompt = ps(); 
-
-
 
 let whoIs = "";
 let passwordCheck = false;
@@ -14,22 +13,6 @@ let studentIndex;
 let correctEncryptedPersonBranch;
 let correctEncryptedPersonObject;
 
-class Person {
-  static sum = 0;
-
-  constructor(name, surname, position, birthday, address, password) {
-    this.name = name;
-    this.surname = surname;
-    this.position = position;
-    this.birthday = birthday;
-    this.address = address;
-    this.password = password;
-    this.fullName = `${this.name} ${this.surname}`;
-    this.mailAddress = (this.name + this.surname + "@dci.de").toLowerCase();
-    this.messages = [];
-    Person.sum++;
-  }
-}
 
 class Teacher extends Person {
   constructor(
@@ -70,8 +53,6 @@ class Student extends Person {
 }
 
 Student.prototype.showInfos = function () {
-
-
   ortala(`${this.name} ${this.surname}`);
 
   console.log(`
@@ -79,11 +60,10 @@ Name          :${this.fullName}
 Birthday      :${this.birthday}
 Address       :${this.address}
 Class Name    :${this.className}
-Student Number:${this.studentNumber}`
-  );
+Student Number:${this.studentNumber}
+`);
 
   ortala("");
-
 };
 
 Student.prototype.avarageGrade = function () {
@@ -266,12 +246,11 @@ function addStudent() {
   const addPosition = "Student";
   const number = students.length + 11;
   const birthday = prompt("Birtday (day.month.year):");
-  const address = prompt("address:");
-  const className = prompt(`Please choose a class:\n
-  ${classes.map(function (element) {
-    return element;
-  })} 
-  `);
+  const address = prompt("Address:");
+  console.log(
+    `**The classes you can choose: ${classes.map((element) => element)}`
+  );
+  const className = prompt(`Please choose a class:`);
   const password = Math.floor(Math.random() * (9000 - 1000) + 1000);
   const notes = {
     math: [0, 0],
@@ -292,11 +271,11 @@ function addStudent() {
     notes
   );
 
-  ortala("");
+  console.clear();
 
-  console.log(`
-  Student successfully registered!
-  Temporary password: ${newStudent.password}`);
+  console.log(
+    `Student successfully registered!\nTemporary password: ${newStudent.password}`
+  );
   newStudent.showInfos();
   students.push(newStudent);
   allStaff.push(newStudent);
@@ -308,20 +287,16 @@ function addClass() {
 
   for (let i = 0; i < classes.length; i++) {
     if (classes[i] === newClass) {
-
       isThere = true;
       break;
-    } 
-    
+    }
   }
 
-  if(isThere===false){
+  if (isThere === false) {
     classes.push(newClass);
-    ortala(`${newClass} succesfully added...`);
-  }else{
-
+    ortala(`${newClass} successfully added...`);
+  } else {
     ortala(`Please write a different class name!!!`);
-
   }
 }
 
@@ -332,10 +307,13 @@ function showStudentLists() {
 }
 
 function showClassList() {
-
   ortala("");
-  inqueriedClassName = prompt(`Please write a class name:\nClasses you can choose: ${correctEncryptedPersonObject.relatedClasses}`
+  console.log(
+    `Classes you can choose: ${correctEncryptedPersonObject.relatedClasses}`
   );
+  inqueriedClassName = prompt(`Please write a class name:`);
+
+  console.clear();
 
   let permission = false;
 
@@ -380,6 +358,8 @@ function showClassList() {
 
 function changePassword() {
   let index;
+  let new1;
+  let new2;
 
   for (const props in allStaff) {
     if (allStaff[props].fullName === correctEncryptedPerson) {
@@ -394,14 +374,40 @@ function changePassword() {
     new1 = parseInt(prompt("Please type your new password:"));
     new2 = parseInt(prompt("Please re-type your new password:"));
 
-    if (new1 === new2) {
-      allStaff[index].password = new1;
-      console.log("Your password has been successfully changed...");
-      selectedContactPage();
-    } else {
-      console.log("New passwords do not match!");
+    console.clear();
+  } else {
+    console.clear();
+    console.log("Please enter your valid old password!");
+
+    let choice = parseInt(
+      prompt(
+        "Incorrect Password!!!\nPress 1 to go to the homepage or press 2 to try again:"
+      )
+    );
+
+    console.clear();
+
+    if (choice === 1) {
+      homePage();
+    } else if (choice === 2) {
       changePassword();
+    } else {
+      console.log("You are being redirected to the homepage...");
+
+      setTimeout(function () {
+        homePage();
+      }, 2000);
     }
+  }
+
+  if (new1 === new2) {
+    allStaff[index].password = new1;
+    ortala("");
+    console.log("Your password has been successfully changed...");
+    selectedContactPage();
+  } else {
+    console.log("New passwords do not match!");
+    changePassword();
   }
 }
 
@@ -409,28 +415,25 @@ function studentAllNotes() {
   let index;
   let realStudent;
 
-    if(whoIs==="director"){
+  if (whoIs === "director") {
+    let numberEnteredStudent = parseInt(
+      prompt(
+        "Please enter the number of the student whose grades you want to see:"
+      )
+    );
 
-        let numberEnteredStudent = parseInt(
-          prompt(
-            "Please enter the number of the student whose grades you want to see:"
-          )
-        );
-      
-        for (const props in students) {
-          if (students[props].studentNumber === numberEnteredStudent) {
-            index = props;
-            break;
-          }
-        }
-        realStudent = students[index];
+    console.clear();
 
-    
-    }else if(whoIs==="student"){
-
-        realStudent = correctEncryptedPersonObject;
+    for (const props in students) {
+      if (students[props].studentNumber === numberEnteredStudent) {
+        index = props;
+        break;
+      }
     }
-
+    realStudent = students[index];
+  } else if (whoIs === "student") {
+    realStudent = correctEncryptedPersonObject;
+  }
 
   ortala(`${realStudent.fullName.toUpperCase()} GRADE INFORMATION`);
 
@@ -440,11 +443,9 @@ Music         :${realStudent.notes.music[0]}---${realStudent.notes.music[1]}
 English       :${realStudent.notes.english[0]}---${realStudent.notes.english[1]}
 History       :${realStudent.notes.history[0]}---${realStudent.notes.history[1]}
 ------------------------
-Not Avarage   :${realStudent.avarageGrade()}`
-  );
+Not Avarage   :${realStudent.avarageGrade()}`);
 
   ortala("");
-
 }
 
 function schoolGeneralInformation() {
@@ -457,7 +458,7 @@ Total Number of Teachers  :${teachers.length}
 Total Number of Students  :${students.length}
 Total Number of Classes   :${classes.length}`);
 
-ortala("");
+  ortala("");
 }
 
 function grading() {
@@ -520,34 +521,31 @@ function grading() {
 }
 
 function showPersonInfos() {
-    
-    const person = correctEncryptedPersonObject;
+  const person = correctEncryptedPersonObject;
 
-    
-    
-    ortala(`${person.name} ${person.surname}`)
-    
-    if(whoIs==="teacher"){
-console.log(`
+  ortala(`${person.fullName.toUpperCase()}`);
+
+  if (whoIs === "teacher") {
+    console.log(`
       Branch           : ${
         person.branch.substring(0, 1).toUpperCase() +
-        person.branch.substring(1).toLowerCase()}
-      Assigned Classes : ${person.relatedClasses}`)}
+        person.branch.substring(1).toLowerCase()
+      }
+      Assigned Classes : ${person.relatedClasses}`);
+  }
 
-    if(whoIs==="student"){
-        console.log(`
+  if (whoIs === "student") {
+    console.log(`
       Student Number   : ${person.studentNumber}
-      Class Name       : ${person.className}`)}    
-      
-      
-      console.log(`        
-      Birthday         : ${person.birthday}
+      Class Name       : ${person.className}`);
+  }
+
+  console.log(`      Birthday         : ${person.birthday}
       Position         : ${person.position}
       Address          : ${person.address}
       Email            : ${person.mailAddress}
-      Password         : ${person.password}`
-          );
-
+      Password         : ${person.password}
+      `);
   ortala("");
 }
 
@@ -562,7 +560,6 @@ function sendPersonEvents() {
 }
 
 function sendMessage() {
-
   ortala("");
   let iletilmekIstenenKisiBulundu = false;
 
@@ -599,26 +596,26 @@ function sendMessage() {
 }
 
 function readMessage() {
+  ortala(`${correctEncryptedPersonObject.fullName} Your Messages`);
 
-
-  ortala(`${correctEncryptedPersonObject.fullName} Your Messages`)
-
- 
   let comingMessages = correctEncryptedPersonObject.messages;
 
-  for (let i = 0; i < comingMessages.length; i++) {
-    console.log(
-      `${comingMessages[comingMessages.length - 1 - i].fullName} : ${
-        comingMessages[comingMessages.length - 1 - i].message
-      }`
-    );
+  if (comingMessages.length === 0) {
+    console.log("You have not any message to read!");
+  } else {
+    for (let i = 0; i < comingMessages.length; i++) {
+      console.log(
+        `${comingMessages[comingMessages.length - 1 - i].fullName} : ${
+          comingMessages[comingMessages.length - 1 - i].message
+        }`
+      );
+    }
   }
 
   ortala("");
 
   sendPersonEvents();
 }
-
 
 homePage();
 
@@ -631,6 +628,8 @@ function homePage() {
   console.log("Student:3");
 
   let choice = parseInt(prompt("Please select your choise!"));
+
+  console.clear();
 
   switch (choice) {
     case 1:
@@ -663,6 +662,8 @@ function page() {
   let personName = prompt("Your Name and Surname:");
   let personPassword = parseInt(prompt("Your password:"));
 
+  console.clear();
+
   let arr;
 
   if (whoIs === "director") {
@@ -689,11 +690,14 @@ function page() {
     }
   }
   if (passwordCheck === false) {
+    console.log("Incorrect Password!!!");
     let choice = parseInt(
       prompt(
-        "Incorrect Password!!!\nPress 1 to go to the homepage or press 2 to try again:"
+        "Press 1 to go to the homepage or press 2 to try again:"
       )
     );
+
+    console.clear();
 
     if (choice === 1) {
       homePage();
@@ -738,7 +742,6 @@ function selectedContactPage() {
 }
 
 function directorEvents() {
-
   console.log("Press 1 to register a student:");
   console.log("Press 2 to create new class:");
   console.log("Press 3 to see registered students:");
@@ -748,10 +751,13 @@ function directorEvents() {
   console.log("Press 7 to return to the homepage:");
   console.log("Press 8 to send a message:");
   console.log("Press 9 to read your messages:");
+  console.log("Press 10 to see your personal informations:");
 
   ortala("");
 
   let choice = parseInt(prompt("Select the action you want to do:"));
+
+  console.clear();
 
   switch (choice) {
     case 1:
@@ -793,13 +799,17 @@ function directorEvents() {
     case 9:
       readMessage();
       break;
+
+    case 10:
+      showPersonInfos();
+      directorEvents();
+      break;
   }
 
-  ortala();
+  ortala("");
 }
 
 function teacherEvents() {
-  
   console.log("Press 1 to see your personal information:");
   console.log("Press 2 to see class list:");
   console.log("Press 3 to change password:");
@@ -811,6 +821,8 @@ function teacherEvents() {
   ortala("");
 
   let choice = parseInt(prompt("Select the action you want to do:"));
+
+  console.clear();
 
   switch (choice) {
     case 1:
@@ -849,7 +861,6 @@ function teacherEvents() {
 }
 
 function studentEvents() {
-
   console.log("Press 1 to change your password:");
   console.log("Press 2 to see your Notes");
   console.log("Press 3 to return to the homepage:");
@@ -860,6 +871,8 @@ function studentEvents() {
   ortala("");
 
   let choice = parseInt(prompt("Select the action you want to do:"));
+
+  console.clear();
 
   switch (choice) {
     case 1:

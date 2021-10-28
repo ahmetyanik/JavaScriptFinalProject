@@ -1,3 +1,16 @@
+import ortala from "./ortala.js";
+import showPersonInfos from "./showPersonInfos.js";
+import showClassList from "./showClassList.js";
+import changePassword from "./changePassword.js";
+import homePage from "./homePage.js";
+import grading from "./grading.js";
+import sendMessage from "./sendMessage.js";
+import readMessage from "./readMessage.js";
+
+
+import ps from "prompt-sync";
+const prompt = ps();
+
 function teacherEvents() {
     console.log("Press 1 to see your personal information:");
     console.log("Press 2 to see class list:");

@@ -1,10 +1,13 @@
 import ortala from "../Functions/ortala.js";
+import {whoIs,passwordCheck,correctEncryptedPerson,correctEncryptedPersonPosition,inqueriedClassName,newClass,studentIndex,correctEncryptedPersonBranch,correctEncryptedPersonObject,setWhoIs,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setNewClass,setStudentIndex} from "../States/states.js";
+import { director, teachers, students, allStaff, classes } from "../DefaultPersons/defaultPersons.js";
+import teacherEvents from "./teacherEvents.js";
 
 import ps from "prompt-sync";
 const prompt = ps(); 
 
 function grading() {
-    Teacher;
+   
   
     ortala("");
   
@@ -19,7 +22,7 @@ function grading() {
     for (const props in students) {
       if (students[props].studentNumber === gradeStudentId) {
         numberofStudent = gradeStudentId;
-        studentIndex = props;
+        setStudentIndex(props)
         break;
       }
     }

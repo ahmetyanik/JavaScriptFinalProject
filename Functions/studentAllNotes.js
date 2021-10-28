@@ -1,3 +1,13 @@
+import {whoIs,passwordCheck,correctEncryptedPerson,correctEncryptedPersonPosition,inqueriedClassName,newClass,studentIndex,correctEncryptedPersonBranch,correctEncryptedPersonObject,setWhoIs,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setNewClass} from "../States/states.js";
+import { director, teachers, students, allStaff, classes } from "../DefaultPersons/defaultPersons.js";
+import ortala from "./ortala.js";
+
+
+
+import ps from "prompt-sync";
+const prompt = ps(); 
+
+
 function studentAllNotes() {
     let index;
     let realStudent;

@@ -1,9 +1,15 @@
 import ortala from "./ortala.js";
+import {whoIs,passwordCheck,correctEncryptedPerson,correctEncryptedPersonPosition,inqueriedClassName,newClass,studentIndex,correctEncryptedPersonBranch,correctEncryptedPersonObject,setWhoIs,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setNewClass,setCorrectEncryptedPersonBranch} from "../States/states.js";
+import { director, teachers, students, allStaff, classes } from "../DefaultPersons/defaultPersons.js";
+import selectedContactPage from "./selectedContactPage.js";
+
+import ps from "prompt-sync";
+const prompt = ps(); 
 
 function page() {
     ortala(`${whoIs.toUpperCase()} IDENTITY CONTROL PAGE`);
   
-    passwordCheck = false;
+    setPassword(false);
   
     let personName = prompt("Your Name and Surname:");
     let personPassword = parseInt(prompt("Your password:"));
@@ -22,13 +28,14 @@ function page() {
   
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].fullName === personName && arr[i].password === personPassword) {
-        correctEncryptedPerson = arr[i].fullName;
-        correctEncryptedPersonPosition = arr[i].position;
-        correctEncryptedPersonObject = arr[i];
-        passwordCheck = true;
+
+        setCorrectEncryptedPerson(arr[i].fullName);
+        setCorrectEncryptedPersonPosition(arr[i].position);
+        setCorrectEncryptedPersonObject(arr[i]);
+        setPassword(true);
   
         if (correctEncryptedPersonPosition === "Teacher") {
-          correctEncryptedPersonBranch = arr[i].branch;
+          setCorrectEncryptedPersonBranch(arr[i].branch);
         }
   
         selectedContactPage();

@@ -1,3 +1,17 @@
+import ortala from "./ortala.js";
+import changePassword from "./changePassword.js";
+import studentAllNotes from "./studentAllNotes.js";
+import homePage from "./homePage.js";
+import sendMessage from "./sendMessage.js";
+import readMessage from "./readMessage.js";
+import showPersonInfos from "./showPersonInfos.js";
+
+
+
+import ps from "prompt-sync";
+const prompt = ps(); 
+
+
 function studentEvents() {
     console.log("Press 1 to change your password:");
     console.log("Press 2 to see your Notes");

@@ -1,3 +1,19 @@
+import ortala from "../Functions/ortala.js";
+import addStudent from "./addStudents.js";
+import addClass from "./addClass.js";
+import showStudentLists from "./showStudentLists.js";
+import studentAllNotes from "./studentAllNotes.js";
+import changePassword from "./changePassword.js";
+import schoolGeneralInformation from "./schoolGeneralInformation.js";
+import homePage from "./homePage.js";
+import sendMessage from "./sendMessage.js";
+import readMessage from "./readMessage.js";
+import showPersonInfos from "./showPersonInfos.js";
+
+
+import ps from "prompt-sync";
+const prompt = ps(); 
+
 function directorEvents() {
     console.log("Press 1 to register a student:");
     console.log("Press 2 to create new class:");

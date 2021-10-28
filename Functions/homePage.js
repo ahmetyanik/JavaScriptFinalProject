@@ -1,6 +1,7 @@
 import ortala from "./ortala.js";
 import page from "./page.js";
-import { whoIs } from "../index.js";
+import { setWhoIs } from "../States/states.js";
+
 
 import ps from "prompt-sync";
 const prompt = ps(); 
@@ -21,15 +22,15 @@ function homePage() {
   
     switch (choice) {
       case 1:
-        whoIs = "director";
+        setWhoIs("director");
         break;
   
       case 2:
-        whoIs = "teacher";
+        setWhoIs("teacher");
         break;
   
       case 3:
-        whoIs = "student";
+        setWhoIs("student");
         break;
   
       default:

@@ -1,6 +1,6 @@
 import ps from "prompt-sync";
 const prompt = ps(); 
-import {director,teachers,students,allStaff,classes} from "../DefaultPersons/defaultPersons.js";
+import {students,allStaff,classes} from "../DefaultPersons/defaultPersons.js";
 import Student from "../Classes/Student.js";
 
 function addStudent() {

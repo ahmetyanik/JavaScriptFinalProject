@@ -1,7 +1,7 @@
 import ortala from "./ortala.js";
 import teacherEvents from "./teacherEvents.js";
-import {whoIs,passwordCheck,correctEncryptedPerson,correctEncryptedPersonPosition,inqueriedClassName,newClass,studentIndex,correctEncryptedPersonBranch,correctEncryptedPersonObject,setWhoIs,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setNewClass,setInqueriedClassName} from "../States/states.js";
-import { director, teachers, students, allStaff, classes } from "../DefaultPersons/defaultPersons.js";
+import {inqueriedClassName,correctEncryptedPersonObject,setInqueriedClassName} from "../States/states.js";
+import { students } from "../DefaultPersons/defaultPersons.js";
 
 import ps from "prompt-sync";
 const prompt = ps();
@@ -33,10 +33,9 @@ function showClassList() {
       }
       ortala("");
     } else {
-      choice = parseInt(
-        prompt(
-          `Wrong choice!!! Please select your assigned classes!\nPress 1 to return to the teacher page, and press 2 to display the class list again...`
-        )
+      console.log(`Wrong choice!!! Please select your assigned classes!\nPress 1 to return to the teacher page, and press 2 to display the class list again...`);
+      let choice = parseInt(
+        prompt("")
       );
   
       switch (choice) {

@@ -1,68 +1,112 @@
 import ortala from "../Functions/ortala.js";
-import {whoIs,passwordCheck,correctEncryptedPerson,correctEncryptedPersonPosition,inqueriedClassName,newClass,studentIndex,correctEncryptedPersonBranch,correctEncryptedPersonObject,setWhoIs,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setNewClass,setStudentIndex} from "../States/states.js";
-import { director, teachers, students, allStaff, classes } from "../DefaultPersons/defaultPersons.js";
+import {
+  correctEncryptedPerson,
+  studentIndex,
+  correctEncryptedPersonBranch,
+  setStudentIndex,
+  correctEncryptedPersonObject
+} from "../States/states.js";
+import { students } from "../DefaultPersons/defaultPersons.js";
 import teacherEvents from "./teacherEvents.js";
 
 import ps from "prompt-sync";
-const prompt = ps(); 
+const prompt = ps();
 
 function grading() {
-   
+  ortala("");
+
+  const assignedClasses = correctEncryptedPersonObject.relatedClasses;
+  let valid = false;
+
+  console.log(`The classes you can choose: ${assignedClasses}`);
+
+  let choosenClass = prompt("");  
+    
+    if(assignedClasses.includes(choosenClass)){
+      valid = true;     
+    }
   
-    ortala("");
   
-    let gradeStudentId = parseInt(
-      prompt(
-        `Dear ${correctEncryptedPerson} Enter the Number of the Student You Will Grade:`
-      )
-    );
-    let numberofStudent;
-    let whichNote;
+  console.clear();
   
-    for (const props in students) {
-      if (students[props].studentNumber === gradeStudentId) {
-        numberofStudent = gradeStudentId;
-        setStudentIndex(props)
-        break;
+
+  if(valid===true){
+
+    ortala(`${choosenClass} Class List`)
+
+    for (let i = 0; i < students.length; i++) {
+      if (students[i].className === choosenClass) {
+        
+        console.log(students[i].fullName + ":" + students[i].studentNumber);
       }
     }
-  
-    if (numberofStudent == undefined) {
-      console.log("Please enter a valid student number!!!");
-      grading();
-    } else {
-      selectNote();
-    }
-  
-    function selectNote() {
-      let whichOne = parseInt(
-        prompt(`Press 1 for the first, press 2 for the second:`)
-      );
-  
-      if (whichOne === 1) {
-        whichNote = whichOne - 1;
-      } else if (whichOne === 2) {
-        whichNote = whichOne - 1;
-      } else {
-        console.log("Wrong choice!!! Please make a valid choice!");
-        selectNote();
-      }
-    }
-  
-    let givenNote = parseInt(prompt("Please enter the grade you want to give:"));
-  
-    let whichBranch = students[studentIndex].notes[correctEncryptedPersonBranch];
-  
-    whichBranch[whichNote] = givenNote;
-  
-    console.log(
-      students[studentIndex].name,
-      `'s ${correctEncryptedPersonBranch} notes:`,
-      whichBranch[0],
-      whichBranch[1]
-    );
+
     ortala("");
-    teacherEvents();
+  
+  }else{
+
+    console.log("Please enter a valid class name!!!");
+    grading();
   }
 
-  export default grading;
+
+  let gradeStudentId = parseInt(
+    prompt(
+      `Dear ${correctEncryptedPerson} enter the number of the student you will grade:`
+    )
+  );
+  let numberofStudent;
+  let whichNote;
+
+  for (const props in students) {
+    if (students[props].studentNumber === gradeStudentId) {
+      numberofStudent = gradeStudentId;
+      setStudentIndex(props);
+      break;
+    }
+  }
+
+  if (numberofStudent == undefined) {
+    console.log("Please enter a valid student number!!!");
+    console.clear();
+    grading();
+  } else {
+    selectNote();
+  }
+
+  function selectNote() {
+    let whichOne = parseInt(
+      prompt(`Press 1 for the first, press 2 for the second:`)
+    );
+
+    if (whichOne === 1) {
+      whichNote = whichOne - 1;
+    } else if (whichOne === 2) {
+      whichNote = whichOne - 1;
+    } else {
+      console.log("Wrong choice!!! Please make a valid choice!");
+      selectNote();
+    }
+  }
+
+  let givenNote = parseInt(prompt("Please enter the grade you want to give:"));
+
+  let whichBranch = students[studentIndex].notes[correctEncryptedPersonBranch];
+
+  whichBranch[whichNote] = givenNote;
+
+  console.clear();
+
+  ortala(`${correctEncryptedPersonBranch.substring(0,1).toUpperCase() + correctEncryptedPersonBranch.substring(1).toLowerCase()} note given successfully`)
+
+  console.log(
+    students[studentIndex].name,
+    `'s ${correctEncryptedPersonBranch} notes:`,
+    whichBranch[0],
+    whichBranch[1]
+  );
+  ortala("");
+  teacherEvents();
+}
+
+export default grading;

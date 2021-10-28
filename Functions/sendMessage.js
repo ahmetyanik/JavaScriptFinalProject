@@ -1,14 +1,8 @@
 import ortala from "./ortala.js";
 import Message from "../Classes/Message.js";
-import {
-  director,
-  teachers,
-  students,
-  allStaff,
-  classes,
-} from "../DefaultPersons/defaultPersons.js";
+import { allStaff } from "../DefaultPersons/defaultPersons.js";
 import sendPersonEvents from "./sendPersonEvents.js";
-import {whoIs,passwordCheck,correctEncryptedPerson,correctEncryptedPersonPosition,inqueriedClassName,newClass,studentIndex,correctEncryptedPersonBranch,correctEncryptedPersonObject,setWhoIs,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setNewClass} from "../States/states.js";
+import { correctEncryptedPersonObject } from "../States/states.js";
 
 import ps from "prompt-sync";
 const prompt = ps();

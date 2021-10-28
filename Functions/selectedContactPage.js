@@ -1,4 +1,4 @@
-import {whoIs,passwordCheck,correctEncryptedPerson,correctEncryptedPersonPosition,inqueriedClassName,newClass,studentIndex,correctEncryptedPersonBranch,correctEncryptedPersonObject,setWhoIs,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setNewClass} from "../States/states.js";
+import {correctEncryptedPerson,correctEncryptedPersonPosition} from "../States/states.js";
 import ortala from "./ortala.js";
 import directorEvents from "./directorEvents.js";
 import teacherEvents from "./teacherEvents.js";

@@ -1,20 +1,7 @@
 import ortala from "../Functions/ortala.js";
 import {
   whoIs,
-  passwordCheck,
-  correctEncryptedPerson,
-  correctEncryptedPersonPosition,
-  inqueriedClassName,
-  newClass,
-  studentIndex,
-  correctEncryptedPersonBranch,
-  correctEncryptedPersonObject,
-  setWhoIs,
-  setPassword,
-  setCorrectEncryptedPerson,
-  setCorrectEncryptedPersonPosition,
-  setCorrectEncryptedPersonObject,
-  setNewClass,
+  correctEncryptedPersonObject
 } from "../States/states.js";
 
 function showPersonInfos() {

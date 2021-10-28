@@ -1,6 +1,6 @@
 import ortala from "./ortala.js";
-import {whoIs,passwordCheck,correctEncryptedPerson,correctEncryptedPersonPosition,inqueriedClassName,newClass,studentIndex,correctEncryptedPersonBranch,correctEncryptedPersonObject,setWhoIs,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setNewClass,setCorrectEncryptedPersonBranch} from "../States/states.js";
-import { director, teachers, students, allStaff, classes } from "../DefaultPersons/defaultPersons.js";
+import {whoIs,passwordCheck,correctEncryptedPersonPosition,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setCorrectEncryptedPersonBranch} from "../States/states.js";
+import { director, teachers, students } from "../DefaultPersons/defaultPersons.js";
 import selectedContactPage from "./selectedContactPage.js";
 
 import ps from "prompt-sync";

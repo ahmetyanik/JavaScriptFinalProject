@@ -13,6 +13,16 @@ function studentAllNotes() {
     let realStudent;
   
     if (whoIs === "director") {
+
+      
+      ortala(`STUDENT LIST OF DCI`)
+
+      for (let i = 0; i < students.length; i++) {
+          console.log(students[i].fullName + ":" + students[i].studentNumber);       
+      }
+
+      ortala("");
+
       let numberEnteredStudent = parseInt(
         prompt(
           "Please enter the number of the student whose grades you want to see:"

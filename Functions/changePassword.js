@@ -1,7 +1,8 @@
 import {correctEncryptedPerson} from "../States/states.js";
 import {allStaff} from "../DefaultPersons/defaultPersons.js";
 import ortala from "./ortala.js";
-import selectedContactPage from "./selectedContactPage.js";
+import selectedPersonPage from "./selectedPersonPage.js";
+import progress from "./progress.js";
 
 
 import ps from "prompt-sync";
@@ -18,7 +19,8 @@ function changePassword() {
         break;
       }
     }
-  
+    
+    ortala("");    
     let oldPassword = parseInt(prompt("Please type your current password:"));
   
     if (oldPassword === allStaff[index].password) {
@@ -55,7 +57,10 @@ function changePassword() {
       allStaff[index].password = new1;
       ortala("");
       console.log("Your password has been successfully changed...");
-      selectedContactPage();
+      ortala("");
+
+      progress();
+      selectedPersonPage();
     } else {
       console.log("New passwords do not match!");
       changePassword();

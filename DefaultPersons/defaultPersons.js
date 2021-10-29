@@ -1,9 +1,9 @@
 import Teacher from "../Classes/Teacher.js";
 import Student from "../Classes/Student.js";
 
-const unalAysal = new Teacher(
-  "Ünal",
-  "Aysal",
+const maximMustermann = new Teacher(
+  "Maxim",
+  "Mustermann",
   "Director",
   "16.12.1960",
   "München",
@@ -136,7 +136,7 @@ const ümitKaran = new Teacher(
   ["1a"]
 );
 
-const director = [unalAysal];
+const director = [maximMustermann];
 const teachers = [fatihTerim, hakanÜnsal, ümitDavala, hasanSas, hakanSukur,tuncaySanli,ümitKaran];
 const students = [ahmetYanik, angelinaJolie, bradPitt, tomHanks];
 const allStaff = [...director, ...teachers, ...students];

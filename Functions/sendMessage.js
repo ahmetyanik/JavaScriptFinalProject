@@ -5,6 +5,7 @@ import sendPersonEvents from "./sendPersonEvents.js";
 import { correctEncryptedPersonObject } from "../States/states.js";
 
 import ps from "prompt-sync";
+import progress from "./progress.js";
 const prompt = ps();
 
 function sendMessage() {
@@ -36,9 +37,14 @@ function sendMessage() {
 
   if (iletilmekIstenenKisiBulundu === false) {
     console.log("Hatali mail adresi girdiniz!!!");
+  } else {
+    console.log(`
+Mesajiniz gönderildi...`);
   }
 
   ortala("");
+
+  progress();
 
   sendPersonEvents();
 }

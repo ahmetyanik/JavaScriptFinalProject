@@ -1,5 +1,5 @@
 import ortala from "./ortala.js";
-import page from "./page.js";
+import page from "./identityControlPage.js";
 import { setWhoIs } from "../States/states.js";
 
 
@@ -15,6 +15,8 @@ function homePage() {
     console.log("Director:1");
     console.log("Teacher:2");
     console.log("Student:3");
+
+    ortala("");
   
     let choice = parseInt(prompt("Please select your choise!"));
   

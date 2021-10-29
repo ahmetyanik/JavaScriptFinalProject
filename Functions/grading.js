@@ -4,12 +4,13 @@ import {
   studentIndex,
   correctEncryptedPersonBranch,
   setStudentIndex,
-  correctEncryptedPersonObject
+  correctEncryptedPersonObject,
 } from "../States/states.js";
 import { students } from "../DefaultPersons/defaultPersons.js";
 import teacherEvents from "./teacherEvents.js";
 
 import ps from "prompt-sync";
+import progress from "./progress.js";
 const prompt = ps();
 
 function grading() {
@@ -20,35 +21,28 @@ function grading() {
 
   console.log(`The classes you can choose: ${assignedClasses}`);
 
-  let choosenClass = prompt("");  
-    
-    if(assignedClasses.includes(choosenClass)){
-      valid = true;     
-    }
-  
-  
+  let choosenClass = prompt("");
+
+  if (assignedClasses.includes(choosenClass)) {
+    valid = true;
+  }
+
   console.clear();
-  
 
-  if(valid===true){
-
-    ortala(`${choosenClass} Class List`)
+  if (valid === true) {
+    ortala(`${choosenClass} Class List`);
 
     for (let i = 0; i < students.length; i++) {
       if (students[i].className === choosenClass) {
-        
         console.log(students[i].fullName + ":" + students[i].studentNumber);
       }
     }
 
     ortala("");
-  
-  }else{
-
+  } else {
     console.log("Please enter a valid class name!!!");
     grading();
   }
-
 
   let gradeStudentId = parseInt(
     prompt(
@@ -97,7 +91,12 @@ function grading() {
 
   console.clear();
 
-  ortala(`${correctEncryptedPersonBranch.substring(0,1).toUpperCase() + correctEncryptedPersonBranch.substring(1).toLowerCase()} note given successfully`)
+  ortala(
+    `${
+      correctEncryptedPersonBranch.substring(0, 1).toUpperCase() +
+      correctEncryptedPersonBranch.substring(1).toLowerCase()
+    } note given successfully`
+  );
 
   console.log(
     students[studentIndex].name,
@@ -106,6 +105,7 @@ function grading() {
     whichBranch[1]
   );
   ortala("");
+  progress();
   teacherEvents();
 }
 

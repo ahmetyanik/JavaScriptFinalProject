@@ -1,13 +1,14 @@
 import ortala from "./ortala.js";
 import {whoIs,passwordCheck,correctEncryptedPersonPosition,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setCorrectEncryptedPersonBranch} from "../States/states.js";
 import { director, teachers, students } from "../DefaultPersons/defaultPersons.js";
-import selectedContactPage from "./selectedContactPage.js";
+import selectedPersonPage from "./selectedPersonPage.js";
 
 import ps from "prompt-sync";
 const prompt = ps(); 
 
 function page() {
     ortala(`${whoIs.toUpperCase()} IDENTITY CONTROL PAGE`);
+    console.log();
   
     setPassword(false);
   
@@ -38,7 +39,7 @@ function page() {
           setCorrectEncryptedPersonBranch(arr[i].branch);
         }
   
-        selectedContactPage();
+        selectedPersonPage();
         break;
       }
     }

@@ -10,76 +10,74 @@ import sendMessage from "./sendMessage.js";
 import readMessage from "./readMessage.js";
 import showPersonInfos from "./showPersonInfos.js";
 
-
 import ps from "prompt-sync";
-const prompt = ps(); 
+import directorOptions from "./options/directorOptions.js";
+import progress from "./progress.js";
+const prompt = ps();
+
+
 
 function directorEvents() {
-    console.log("Press 1 to register a student:");
-    console.log("Press 2 to create new class:");
-    console.log("Press 3 to see registered students:");
-    console.log("Press 4 to see student grade information:");
-    console.log("Press 5 to change password:");
-    console.log("Press 6 to see general information of the school:");
-    console.log("Press 7 to return to the homepage:");
-    console.log("Press 8 to send a message:");
-    console.log("Press 9 to read your messages:");
-    console.log("Press 10 to see your personal informations:");
-  
-    ortala("");
-  
-    let choice = parseInt(prompt("Select the action you want to do:"));
-  
-    console.clear();
-  
-    switch (choice) {
-      case 1:
-        addStudent();
-        directorEvents();
-        break;
-  
-      case 2:
-        addClass();
-        directorEvents();
-  
-      case 3:
-        showStudentLists();
-        directorEvents();
-        break;
-  
-      case 4:
-        studentAllNotes();
-        directorEvents();
-        break;
-  
-      case 5:
-        changePassword();
-        directorEvents();
-        break;
-  
-      case 6:
-        schoolGeneralInformation();
-        directorEvents();
-  
-      case 7:
-        homePage();
-        break;
-  
-      case 8:
-        sendMessage();
-        break;
-  
-      case 9:
-        readMessage();
-        break;
-  
-      case 10:
-        showPersonInfos();
-        directorEvents();
-        break;
-    }
-  
-    ortala("");
+
+  directorOptions();
+
+  let choice = parseInt(prompt("Select the action you want to do:"));
+  console.clear();
+
+  switch (choice) {
+    case 1:
+      addStudent();
+      progress();
+      directorEvents();
+      break;
+
+    case 2:
+      addClass();
+      progress();
+      directorEvents();
+
+    case 3:
+      showStudentLists();
+      progress();
+      directorEvents();
+      break;
+
+    case 4:
+      studentAllNotes();
+      progress();
+      directorEvents();
+      break;
+
+    case 5:
+      changePassword();
+      progress();
+      directorEvents();
+      break;
+
+    case 6:
+      schoolGeneralInformation();
+      progress();
+      directorEvents();
+
+    case 7:
+      sendMessage();
+      break;
+
+    case 8:
+      readMessage();
+      break;
+
+    case 9:
+      showPersonInfos();
+      directorEvents();
+      break;
+
+    case 10:
+      homePage();
+      break;
   }
 
-  export default directorEvents;
+  ortala("");
+}
+
+export default directorEvents;

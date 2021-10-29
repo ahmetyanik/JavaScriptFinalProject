@@ -9,7 +9,8 @@ function schoolGeneralInformation() {
   Number of Managers        :1
   Total Number of Teachers  :${teachers.length}
   Total Number of Students  :${students.length}
-  Total Number of Classes   :${classes.length}`);
+  Total Number of Classes   :${classes.length}
+`);
   
     ortala("");
   }

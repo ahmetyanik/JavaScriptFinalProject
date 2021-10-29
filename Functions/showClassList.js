@@ -4,6 +4,7 @@ import {inqueriedClassName,correctEncryptedPersonObject,setInqueriedClassName} f
 import { students } from "../DefaultPersons/defaultPersons.js";
 
 import ps from "prompt-sync";
+import progress from "./progress.js";
 const prompt = ps();
 
 function showClassList() {
@@ -32,6 +33,9 @@ function showClassList() {
         }
       }
       ortala("");
+
+      progress();
+
     } else {
       console.log(`Wrong choice!!! Please select your assigned classes!\nPress 1 to return to the teacher page, and press 2 to display the class list again...`);
       let choice = parseInt(

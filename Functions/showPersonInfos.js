@@ -1,4 +1,5 @@
 import ortala from "../Functions/ortala.js";
+import progress from "./progress.js";
 import {
   whoIs,
   correctEncryptedPersonObject
@@ -31,6 +32,8 @@ function showPersonInfos() {
         Password         : ${person.password}
         `);
   ortala("");
+
+  progress();
 }
 
 export default showPersonInfos;

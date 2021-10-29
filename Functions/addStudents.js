@@ -2,8 +2,10 @@ import ps from "prompt-sync";
 const prompt = ps(); 
 import {students,allStaff,classes} from "../DefaultPersons/defaultPersons.js";
 import Student from "../Classes/Student.js";
+import ortala from "./ortala.js";
 
 function addStudent() {
+  ortala(`Student Registration`)
     const addName = prompt("Name:");
     const addSurname = prompt("Surname:");
     const addPosition = "Student";
@@ -36,6 +38,7 @@ function addStudent() {
   
     console.clear();
   
+    ortala(``);
     console.log(
       `Student successfully registered!\nTemporary password: ${newStudent.password}`
     );

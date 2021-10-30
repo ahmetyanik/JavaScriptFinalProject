@@ -16,12 +16,12 @@ function sendMessage() {
   console.log();
   let iletilmekIstenenKisiBulundu = false;
 
-  let kime = prompt("Mesajinizi kime göndermek istiyorsunuz?   ");
+  let kime = prompt("Mesajinizi kime göndermek istiyorsunuz? ");
 
   let gönderenMail = correctEncryptedPersonObject.mailAddress;
   let gönderenFullName = correctEncryptedPersonObject.fullName;
 
-  let message = prompt("Lütfen mesajinizi giriniz:   ");
+  let message = prompt("Lütfen mesajinizi giriniz: ");
   let unreadMessageNumber = 0;
 
   const newMessage = new Message(
@@ -43,7 +43,11 @@ function sendMessage() {
   }
   
   if (iletilmekIstenenKisiBulundu === false) {
+      ortala("");
+      console.log();
      term.red("Hatali mail adresi girdiniz!!!\n")
+     console.log();
+     ortala("");
   } else {
     console.log();
     term.green.bold("Your message has been successfully sent.\n")

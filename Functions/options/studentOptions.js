@@ -5,7 +5,7 @@ import unreadMessageWarnings from "../unreadMessageWarning.js";
 function studentOptions() {
   title();  
 
-  unreadMessageWarnings();
+  unreadMessageWarnings()
 
   console.log();
   console.log("Press 1 to change your password:");

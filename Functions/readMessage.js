@@ -1,6 +1,6 @@
 import ortala from "./ortala.js";
 import sendPersonEvents from "./sendPersonEvents.js";
-import { correctEncryptedPersonObject } from "../States/states.js";
+import { correctEncryptedPersonObject,correctEncryptedPersonNewMessageNumber } from "../States/states.js";
 import progress from "./progress.js";
 import terminal from "terminal-kit";
 const term = terminal.terminal;

@@ -12,6 +12,8 @@ import teacherEvents from "./teacherEvents.js";
 import ps from "prompt-sync";
 import progress from "./progress.js";
 const prompt = ps();
+import terminal from "terminal-kit";
+const term = terminal.terminal;
 
 function grading() {
   ortala("");
@@ -19,7 +21,8 @@ function grading() {
   const assignedClasses = correctEncryptedPersonObject.relatedClasses;
   let valid = false;
 
-  console.log(`The classes you can choose: ${assignedClasses}`);
+  term.yellow("**The classes you can choose:") 
+  console.log(`${assignedClasses}`);
 
   let choosenClass = prompt("");
 
@@ -40,7 +43,10 @@ function grading() {
 
     ortala("");
   } else {
-    console.log("Please enter a valid class name!!!");
+    ortala("")
+    console.log();
+    term.red.bold("Please enter a valid class name!!!\n")
+    console.log();
     grading();
   }
 
@@ -90,13 +96,14 @@ function grading() {
   whichBranch[whichNote] = givenNote;
 
   console.clear();
-
+  console.log();
   ortala(
     `${
       correctEncryptedPersonBranch.substring(0, 1).toUpperCase() +
       correctEncryptedPersonBranch.substring(1).toLowerCase()
     } note given successfully`
   );
+  console.log();
 
   console.log(
     students[studentIndex].name,

@@ -70,10 +70,13 @@ function addClass() {
       
     })
     console.log();
-    term.green("Class succesfully created...\n")
+    term.green.bold("Class succesfully created.\n")
     ortala("");
   } else {
-    ortala(`Please write a different class name!!!`);
+    console.log();
+    ortala("");
+    term.red.bold("Please write a different class name!!!\n");
+    ortala("");
   }
 }
 

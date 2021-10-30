@@ -7,6 +7,8 @@ import progress from "./progress.js";
 
 import ps from "prompt-sync";
 const prompt = ps(); 
+import terminal from "terminal-kit";
+const term = terminal.terminal;
 
 function changePassword() {
     let index;
@@ -30,7 +32,7 @@ function changePassword() {
       console.clear();
     } else {
       console.clear();
-      console.log("Please enter your valid old password!");
+      term.red("Please enter your valid old password!\n");
   
       let choice = parseInt(
         prompt(
@@ -56,13 +58,13 @@ function changePassword() {
     if (new1 === new2) {
       allStaff[index].password = new1;
       ortala("");
-      console.log("Your password has been successfully changed...");
+      term.green("Your password has been successfully changed...\n");
       ortala("");
 
       progress();
       selectedPersonPage();
     } else {
-      console.log("New passwords do not match!");
+      term.red("New passwords do not match!\n")
       changePassword();
     }
   }

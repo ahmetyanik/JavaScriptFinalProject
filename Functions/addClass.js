@@ -4,11 +4,14 @@ import ortala from "./ortala.js";
 
 import ps from "prompt-sync";
 const prompt = ps();
+import terminal from "terminal-kit";
+const term = terminal.terminal;
 
 function addClass() {
 
   ortala(`Creating a New Class`);
 
+  console.log();
   setNewClass(prompt("Please enter the name of the class you want to add:"));
   let isThere = false;
 
@@ -59,14 +62,15 @@ function addClass() {
 
     classes.push(newClass);
     console.clear();
-    ortala(`${newClass.toUpperCase()} Class Successfully Created`);
+    ortala(`${newClass.toUpperCase()}`);
     console.log();
     assignedTeachers.forEach((teacher)=>{
-
+      
       console.log(`${teacher.fullName} assigned as ${teacher.branch} teacher.`);
-
+      
     })
     console.log();
+    term.green("Class succesfully created...\n")
     ortala("");
   } else {
     ortala(`Please write a different class name!!!`);

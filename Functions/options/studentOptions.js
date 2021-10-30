@@ -1,8 +1,12 @@
 import ortala from "../ortala.js";
 import title from "../selectedPersonTitle.js";
+import unreadMessageWarnings from "../unreadMessageWarning.js";
 
 function studentOptions() {
   title();  
+
+  unreadMessageWarnings();
+
   console.log();
   console.log("Press 1 to change your password:");
   console.log("Press 2 to see your Notes");

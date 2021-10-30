@@ -5,6 +5,7 @@ class Message {
       this.from = from;
       this.to = to;
       this.isRead = isRead;
+      this.unreadMessageNumber = 0;
     }
   }
 

@@ -7,7 +7,7 @@ let newClass = "";
 let studentIndex;
 let correctEncryptedPersonBranch;
 let correctEncryptedPersonObject;
-let newMessage;
+let correctEncryptedPersonNewMessageNumber;
 
 function setWhoIs(name){
 
@@ -56,8 +56,8 @@ function setStudentIndex(index){
 }
 
 function setNewMessage(message){
-    newMessage = message;
+    correctEncryptedPersonNewMessage = message;
 }
 
 
-export {whoIs,passwordCheck,correctEncryptedPerson,correctEncryptedPersonPosition,inqueriedClassName,newClass,studentIndex,correctEncryptedPersonBranch,correctEncryptedPersonObject,setWhoIs,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setNewClass,setCorrectEncryptedPersonBranch,setInqueriedClassName,setStudentIndex,setNewMessage}
+export {whoIs,passwordCheck,correctEncryptedPerson,correctEncryptedPersonPosition,inqueriedClassName,newClass,studentIndex,correctEncryptedPersonBranch,correctEncryptedPersonObject,correctEncryptedPersonNewMessageNumber,setWhoIs,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setNewClass,setCorrectEncryptedPersonBranch,setInqueriedClassName,setStudentIndex,setNewMessage}

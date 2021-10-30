@@ -8,40 +8,48 @@ import ps from "prompt-sync";
 import progress from "./progress.js";
 const prompt = ps();
 
+import terminal from "terminal-kit";
+const term = terminal.terminal;
+
 function sendMessage() {
-  ortala("");
+  ortala("MESSENGER");
+  console.log();
   let iletilmekIstenenKisiBulundu = false;
 
-  let kime = prompt("Mesajinizi kime göndermek istiyorsunuz?");
+  let kime = prompt("Mesajinizi kime göndermek istiyorsunuz?   ");
 
   let gönderenMail = correctEncryptedPersonObject.mailAddress;
   let gönderenFullName = correctEncryptedPersonObject.fullName;
 
-  let message = prompt("Lütfen mesajinizi giriniz:");
+  let message = prompt("Lütfen mesajinizi giriniz:   ");
+  let unreadMessageNumber = 0;
 
   const newMessage = new Message(
     message,
     gönderenFullName,
     gönderenMail,
     kime,
-    false
+    false,
+    unreadMessageNumber
   );
 
   for (let i = 0; i < allStaff.length; i++) {
     if (allStaff[i].mailAddress === kime) {
       allStaff[i].messages.push(newMessage);
       iletilmekIstenenKisiBulundu = true;
+      newMessage.unreadMessageNumber++;
       break;
     }
   }
-
+  
   if (iletilmekIstenenKisiBulundu === false) {
-    console.log("Hatali mail adresi girdiniz!!!");
+     term.red("Hatali mail adresi girdiniz!!!\n")
   } else {
-    console.log(`
-Mesajiniz gönderildi...`);
+    console.log();
+    term.green.bold("Your message has been successfully sent.\n")
   }
 
+  console.log();
   ortala("");
 
   progress();

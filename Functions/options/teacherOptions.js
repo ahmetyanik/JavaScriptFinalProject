@@ -1,9 +1,11 @@
 import ortala from "../ortala.js";
 import title from "../selectedPersonTitle.js";
+import unreadMessageWarnings from "../unreadMessageWarning.js";
 
 function teacherOptions(){
 
     title();
+    unreadMessageWarnings();
     console.log();
     console.log("Press 1 to see your personal information:");
     console.log("Press 2 to see class list:");

@@ -4,16 +4,21 @@ import {students,allStaff,classes} from "../DefaultPersons/defaultPersons.js";
 import Student from "../Classes/Student.js";
 import ortala from "./ortala.js";
 
+import terminal from "terminal-kit";
+const term = terminal.terminal;
+
 function addStudent() {
-  ortala(`Student Registration`)
+  ortala(`Student Registration`);
+  console.log();
     const addName = prompt("Name:");
     const addSurname = prompt("Surname:");
     const addPosition = "Student";
     const number = students.length + 11;
     const birthday = prompt("Birtday (day.month.year):");
     const address = prompt("Address:");
+    term.yellow("**The classes you can choose:") 
     console.log(
-      `**The classes you can choose: ${classes.map((element) => element)}`
+      `${classes.map((element) => element)}`
     );
     const className = prompt(`Please choose a class:`);
     const password = Math.floor(Math.random() * (9000 - 1000) + 1000);
@@ -39,9 +44,9 @@ function addStudent() {
     console.clear();
   
     ortala(``);
-    console.log(
-      `Student successfully registered!\nTemporary password: ${newStudent.password}`
-    );
+    term.green("Student successfully registered!\n");
+    term.yellow("Temporary password:  ");
+    console.log(`${newStudent.password}`);
     newStudent.showInfos();
     students.push(newStudent);
     allStaff.push(newStudent);

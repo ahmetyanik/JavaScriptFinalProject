@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/ahmetyanik/JavaScriptFinalProject#readme",
   "dependencies": {
-    "prompt-sync": "^4.2.0"
+    "console-success": "^1.0.4",
+    "console.icon": "^1.0.0",
+    "prompt-sync": "^4.2.0",
+    "terminal-kit": "^2.1.8"
   }
 }

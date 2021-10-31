@@ -12,8 +12,8 @@ const term = terminal.terminal;
 
 function changePassword() {
   let index;
-  let new1;
-  let new2;
+  let new1 = true;
+  let new2 = false;
 
   for (const props in allStaff) {
     if (allStaff[props].fullName === correctEncryptedPerson) {
@@ -48,11 +48,10 @@ function changePassword() {
     } else if (choice === 2) {
       changePassword();
     } else {
-      console.log("You are being redirected to the homepage...");
-
-      setTimeout(function () {
-        homePage();
-      }, 2000);
+      ortala("");
+      term.red.bold("You are being redirected to the homepage...\n");
+      ortala("");
+      homePage();
     }
   }
 

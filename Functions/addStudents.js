@@ -8,6 +8,9 @@ import terminal from "terminal-kit";
 const term = terminal.terminal;
 
 function addStudent() {
+
+  let isClass = false;
+
   ortala(`Student Registration`);
   console.log();
     const addName = prompt("Name:");
@@ -20,7 +23,27 @@ function addStudent() {
     console.log(
       `${classes.map((element) => element)}`
     );
-    const className = prompt(`Please choose a class:`);
+    let className = prompt(`Please choose a class:`);
+
+    for(let i=0;i<classes.length;i++){
+
+      if(classes[i]===className){
+        isClass = true;
+        break;
+      }else{
+        isClass = false;
+      }
+    }
+
+
+    if(isClass===false){
+
+      ortala("");
+      term.red.bold("Please enter a valid class name!\n");
+      ortala("");
+      className = prompt(`Please choose a class:`);
+    }
+
     const password = Math.floor(Math.random() * (9000 - 1000) + 1000);
     const notes = {
       math: [0, 0],

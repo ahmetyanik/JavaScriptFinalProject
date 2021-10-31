@@ -18,7 +18,7 @@ function unreadMessageWarnings(){
     
     if(sayi>0){
       console.log();
-      term.green.bold(`${sayi}`," adet okunmamis mesajiniz var\n")
+      term.green.bold(`${sayi}`," adet okunmamis mesajiniz var!!!\n")
     }
 }
 

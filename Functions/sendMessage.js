@@ -17,6 +17,7 @@ function sendMessage() {
   let iletilmekIstenenKisiBulundu = false;
 
   let kime = prompt("Mesajinizi kime göndermek istiyorsunuz? ");
+  console.log();
 
   let gönderenMail = correctEncryptedPersonObject.mailAddress;
   let gönderenFullName = correctEncryptedPersonObject.fullName;

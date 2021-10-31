@@ -13,15 +13,18 @@ import ps from "prompt-sync";
 import progress from "./progress.js";
 const prompt = ps();
 import terminal from "terminal-kit";
+import teacherOptions from "./options/teacherOptions.js";
 const term = terminal.terminal;
 
 function grading() {
+  let isThereStudent = false;
+
   ortala("");
 
   const assignedClasses = correctEncryptedPersonObject.relatedClasses;
   let valid = false;
 
-  term.yellow("**The classes you can choose:") 
+  term.yellow("**The classes you can choose:");
   console.log(`${assignedClasses}`);
 
   let choosenClass = prompt("");
@@ -38,14 +41,30 @@ function grading() {
     for (let i = 0; i < students.length; i++) {
       if (students[i].className === choosenClass) {
         console.log(students[i].fullName + ":" + students[i].studentNumber);
+        isThereStudent = true;
+      }
+    }
+
+    if (isThereStudent === false) {
+      term.red.bold("Bu sinifta henüz hic ögrenci bulunmamaktadir!\n");
+      term.yellow.bold(
+        "Not vermek icin 1'e ögretmen ekranina dönmek icin 2'ye basiniz:"
+      );
+      let choise = parseInt(prompt(""));
+      console.clear();
+
+      if (choise === 1) {
+        grading();
+      } else if (choise === 2) {
+        teacherOptions();
       }
     }
 
     ortala("");
   } else {
-    ortala("")
+    ortala("");
     console.log();
-    term.red.bold("Please enter a valid class name!!!\n")
+    term.red.bold("Please enter a valid class name!!!\n");
     console.log();
     grading();
   }

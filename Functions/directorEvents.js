@@ -14,11 +14,10 @@ import ps from "prompt-sync";
 import directorOptions from "./options/directorOptions.js";
 import progress from "./progress.js";
 const prompt = ps();
-
-
+import terminal from "terminal-kit";
+const term = terminal.terminal;
 
 function directorEvents() {
-
   directorOptions();
 
   let choice = parseInt(prompt("Select the action you want to do:"));
@@ -75,6 +74,11 @@ function directorEvents() {
     case 10:
       homePage();
       break;
+
+    default:
+      ortala("Hatali Giris");
+      term.red.bold("Hatali giris yaptiniz!\n");
+      directorEvents();
   }
 
   ortala("");

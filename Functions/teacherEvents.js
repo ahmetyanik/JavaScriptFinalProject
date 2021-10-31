@@ -10,13 +10,12 @@ import readMessage from "./readMessage.js";
 import ps from "prompt-sync";
 import teacherOptions from "./options/teacherOptions.js";
 const prompt = ps();
-
-
+import terminal from "terminal-kit";
+const term = terminal.terminal;
 
 function teacherEvents() {
-
   teacherOptions();
-  
+
   let choice = parseInt(prompt("Select the action you want to do:"));
   console.clear();
 
@@ -51,6 +50,11 @@ function teacherEvents() {
     case 7:
       homePage();
       break;
+
+    default:
+      ortala("Hatali Giris");
+      term.red.bold("Hatali giris yaptiniz!\n");
+      teacherEvents();
   }
 
   ortala("");

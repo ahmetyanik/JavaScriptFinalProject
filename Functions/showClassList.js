@@ -62,7 +62,9 @@ function showClassList() {
         break;
 
       default:
-        console.log(`You are being redirected to the homepage...`);
+        ortala("");
+        term.red.bold(`You are being redirected to the teacher page...`);
+        ortala("");
         teacherEvents();
         break;
     }

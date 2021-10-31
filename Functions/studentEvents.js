@@ -10,6 +10,8 @@ import progress from "./progress.js";
 
 import ps from "prompt-sync";
 const prompt = ps();
+import terminal from "terminal-kit";
+const term = terminal.terminal;
 
 function studentEvents() {
 
@@ -47,6 +49,11 @@ function studentEvents() {
     case 6:
       homePage();
       break;
+
+    default:
+      ortala("Hatali Giris");
+      term.red.bold("Hatali giris yaptiniz!\n"); 
+      studentEvents();
   }
 
   ortala("");

@@ -1,5 +1,5 @@
 import {correctEncryptedPersonPosition} from "../States/states.js";
-import directorEvents from "./directorEvents.js";
+import directorEvents from "../Functions/directorEvents.js";
 import teacherEvents from "./teacherEvents.js";
 import studentEvents from "./studentEvents.js";
 

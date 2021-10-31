@@ -10,10 +10,9 @@ import terminal from "terminal-kit";
 const term = terminal.terminal;
 
 function homePage() {
-  
   ortala("DCI HOMEPAGE");
   console.log();
-  term.blue.bold("Please select your position\n")
+  term.blue.bold("Please select your position\n");
   console.log();
   console.log("Director:1");
   console.log("Teacher:2");
@@ -40,10 +39,10 @@ function homePage() {
       break;
 
     default:
-      console.log("Please use a valid number!!!");
-      setTimeout(function () {
-        homePage();
-      }, 2000);
+      ortala("");
+      term.red.bold("Please use a valid number!!!\n");
+      ortala("");
+      homePage();
   }
 
   return page();

@@ -1,4 +1,4 @@
-import ortala from "../Functions/ortala.js";
+import ortala from "./ortala.js";
 import addStudent from "./addStudents.js";
 import addClass from "./addClass.js";
 import showStudentLists from "./showStudentLists.js";

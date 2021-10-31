@@ -67,7 +67,7 @@ const fatihTerim = new Teacher(
   "Istanbul",
   "math",
   1235,
-  ["1a", "1b", "2a", "2b"]
+  ["1a", "1b"]
 );
 
 const hakanÜnsal = new Teacher(
@@ -78,7 +78,7 @@ const hakanÜnsal = new Teacher(
   "Istanbul",
   "math",
   1235,
-  ["1a", "1b", "2a", "2b"]
+  ["2a", "2b"]
 );
 
 const ümitDavala = new Teacher(

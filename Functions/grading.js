@@ -13,7 +13,6 @@ import ps from "prompt-sync";
 import progress from "./progress.js";
 const prompt = ps();
 import terminal from "terminal-kit";
-import teacherOptions from "./options/teacherOptions.js";
 const term = terminal.terminal;
 
 function grading() {
@@ -56,7 +55,7 @@ function grading() {
       if (choise === 1) {
         grading();
       } else if (choise === 2) {
-        teacherOptions();
+        teacherEvents();
       }
     }
 

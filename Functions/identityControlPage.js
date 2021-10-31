@@ -1,4 +1,4 @@
-import ortala from "./ortala.js";
+import makeCenter from "./makeCenter.js";
 import {whoIs,passwordCheck,correctEncryptedPersonPosition,setPassword,setCorrectEncryptedPerson,setCorrectEncryptedPersonPosition,setCorrectEncryptedPersonObject,setCorrectEncryptedPersonBranch} from "../States/states.js";
 import { director, teachers, students } from "../DefaultPersons/defaultPersons.js";
 import selectedPersonPage from "./selectedPersonPage.js";
@@ -7,7 +7,7 @@ import ps from "prompt-sync";
 const prompt = ps(); 
 
 function page() {
-    ortala(`${whoIs.toUpperCase()} IDENTITY CONTROL PAGE`);
+    makeCenter(`${whoIs.toUpperCase()} IDENTITY CONTROL PAGE`);
     console.log();
   
     setPassword(false);

@@ -1,10 +1,10 @@
-import ortala from "./ortala.js";
+import makeCenter from "./makeCenter.js";
 import {correctEncryptedPerson,correctEncryptedPersonPosition} from "../States/states.js";
 
 function title() {
-  ortala(`${correctEncryptedPersonPosition.toUpperCase()} PAGE`);
+  makeCenter(`${correctEncryptedPersonPosition.toUpperCase()} PAGE`);
 
-  ortala(`${correctEncryptedPerson.toUpperCase()}`);
+  makeCenter(`${correctEncryptedPerson.toUpperCase()}`);
 }
 
 export default title;

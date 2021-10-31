@@ -1,5 +1,5 @@
 import Person from "./Person.js";
-import ortala from "../Functions/ortala.js";
+import makeCenter from "../Functions/makeCenter.js";
 
 class Student extends Person {
     constructor(
@@ -22,7 +22,7 @@ class Student extends Person {
   }
   
   Student.prototype.showInfos = function () {
-    ortala(`${this.name} ${this.surname}`);
+    makeCenter(`${this.name} ${this.surname}`);
   
     console.log(`
   Name          :${this.fullName}
@@ -32,7 +32,7 @@ class Student extends Person {
   Student Number:${this.studentNumber}
   `);
   
-    ortala("");
+    makeCenter("");
   };
   
   Student.prototype.avarageGrade = function () {

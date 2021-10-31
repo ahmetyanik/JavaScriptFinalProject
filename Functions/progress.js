@@ -3,7 +3,7 @@ const prompt = ps();
 
 
 function progress(){
-    let space = prompt(`Ilerlemek icin space tusuna basiniz...`);
+    let space = prompt(`Press the space key to continue...`);
     console.clear();    
 }
 

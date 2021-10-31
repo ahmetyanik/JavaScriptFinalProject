@@ -1,14 +1,11 @@
-import ortala from "../Functions/ortala.js";
+import makeCenter from "../Functions/makeCenter.js";
 import progress from "./progress.js";
-import {
-  whoIs,
-  correctEncryptedPersonObject
-} from "../States/states.js";
+import { whoIs, correctEncryptedPersonObject } from "../States/states.js";
 
 function showPersonInfos() {
   const person = correctEncryptedPersonObject;
 
-  ortala(`${person.fullName.toUpperCase()}`);
+  makeCenter(`${person.fullName.toUpperCase()}`);
 
   if (whoIs === "teacher") {
     console.log(`
@@ -31,7 +28,7 @@ function showPersonInfos() {
         Email            : ${person.mailAddress}
         Password         : ${person.password}
         `);
-  ortala("");
+  makeCenter("");
 
   progress();
 }

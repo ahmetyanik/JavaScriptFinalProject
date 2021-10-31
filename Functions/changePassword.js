@@ -1,6 +1,6 @@
 import { correctEncryptedPerson } from "../States/states.js";
 import { allStaff } from "../DefaultPersons/defaultPersons.js";
-import ortala from "./ortala.js";
+import makeCenter from "./makeCenter.js";
 import selectedPersonPage from "./selectedPersonPage.js";
 import progress from "./progress.js";
 
@@ -22,7 +22,8 @@ function changePassword() {
     }
   }
 
-  ortala("");
+  makeCenter(`${correctEncryptedPerson}`);
+  console.log();
   let oldPassword = parseInt(prompt("Please type your current password:"));
 
   if (oldPassword === allStaff[index].password) {
@@ -32,11 +33,11 @@ function changePassword() {
     console.clear();
   } else {
     console.clear();
-    ortala("");
+    makeCenter(`${correctEncryptedPerson}`);
 
     term.red.bold("Incorrect Password!!!\n");
     term.yellow.bold("Please enter your current valid password!\n");
-    ortala("");
+    makeCenter("");
 
     let choice = parseInt(
       prompt("Press 1 to go to the homepage or press 2 to try again:")
@@ -48,23 +49,23 @@ function changePassword() {
     } else if (choice === 2) {
       changePassword();
     } else {
-      ortala("");
+      makeCenter("");
       term.red.bold("You are being redirected to the homepage...\n");
-      ortala("");
+      makeCenter("");
       homePage();
     }
   }
 
   if (new1 === new2) {
     allStaff[index].password = new1;
-    ortala("");
+    makeCenter(`${correctEncryptedPerson}`);
     term.green("Your password has been successfully changed...\n");
-    ortala("");
+    makeCenter("");
 
     progress();
     selectedPersonPage();
   } else {
-    ortala("");
+    makeCenter("");
     term.red("New passwords do not match!\n");
     changePassword();
   }

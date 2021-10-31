@@ -1,4 +1,4 @@
-import ortala from "./ortala.js";
+import makeCenter from "./makeCenter.js";
 import page from "./identityControlPage.js";
 import { setWhoIs } from "../States/states.js";
 
@@ -10,7 +10,7 @@ import terminal from "terminal-kit";
 const term = terminal.terminal;
 
 function homePage() {
-  ortala("DCI HOMEPAGE");
+  makeCenter("DCI HOMEPAGE");
   console.log();
   term.blue.bold("Please select your position\n");
   console.log();
@@ -19,7 +19,7 @@ function homePage() {
   console.log("Student:3");
   console.log();
 
-  ortala("");
+  makeCenter("");
 
   let choice = parseInt(prompt("Please select your choise!"));
 
@@ -39,9 +39,9 @@ function homePage() {
       break;
 
     default:
-      ortala("");
+      makeCenter("");
       term.red.bold("Please use a valid number!!!\n");
-      ortala("");
+      makeCenter("");
       homePage();
   }
 

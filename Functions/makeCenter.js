@@ -1,4 +1,4 @@
-function ortala(str) {
+function makeCenter(str) {
     let stars = (50 - str.length) / 2;
     let newStr = "";
   
@@ -27,4 +27,4 @@ function ortala(str) {
     console.log(newStr);
   }
 
-export default ortala;
+export default makeCenter;

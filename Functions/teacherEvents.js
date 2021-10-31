@@ -1,4 +1,4 @@
-import ortala from "./ortala.js";
+import makeCenter from "./makeCenter.js";
 import showPersonInfos from "./showPersonInfos.js";
 import showClassList from "./showClassList.js";
 import changePassword from "./changePassword.js";
@@ -52,12 +52,12 @@ function teacherEvents() {
       break;
 
     default:
-      ortala("Hatali Giris");
-      term.red.bold("Hatali giris yaptiniz!\n");
+      makeCenter("");
+      term.red.bold("You entered wrong!\n");
       teacherEvents();
   }
 
-  ortala("");
+  makeCenter("");
 }
 
 export default teacherEvents;

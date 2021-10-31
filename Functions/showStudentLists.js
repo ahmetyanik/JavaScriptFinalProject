@@ -1,4 +1,4 @@
-import {students} from "../DefaultPersons/defaultPersons.js";
+import { students } from "../DefaultPersons/defaultPersons.js";
 
 function showStudentLists() {
   for (let i = 0; i < students.length; i++) {

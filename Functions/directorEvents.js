@@ -1,4 +1,4 @@
-import ortala from "./ortala.js";
+import makeCenter from "./makeCenter.js";
 import addStudent from "./addStudents.js";
 import addClass from "./addClass.js";
 import showStudentLists from "./showStudentLists.js";
@@ -76,12 +76,12 @@ function directorEvents() {
       break;
 
     default:
-      ortala("Hatali Giris");
-      term.red.bold("Hatali giris yaptiniz!\n");
+      makeCenter("");
+      term.red.bold("You entered wrong!\n");
       directorEvents();
   }
 
-  ortala("");
+  makeCenter("");
 }
 
 export default directorEvents;

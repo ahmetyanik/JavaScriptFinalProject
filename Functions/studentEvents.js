@@ -1,4 +1,4 @@
-import ortala from "./ortala.js";
+import makeCenter from "./makeCenter.js";
 import changePassword from "./changePassword.js";
 import studentAllNotes from "./studentAllNotes.js";
 import homePage from "./homePage.js";
@@ -14,7 +14,6 @@ import terminal from "terminal-kit";
 const term = terminal.terminal;
 
 function studentEvents() {
-
   studentOptions();
 
   let choice = parseInt(prompt("Select the action you want to do:"));
@@ -51,12 +50,12 @@ function studentEvents() {
       break;
 
     default:
-      ortala("Hatali Giris");
-      term.red.bold("Hatali giris yaptiniz!\n"); 
+      makeCenter("");
+      term.red.bold("You entered wrong!\n");
       studentEvents();
   }
 
-  ortala("");
+  makeCenter("");
 }
 
 export default studentEvents;

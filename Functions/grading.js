@@ -1,4 +1,4 @@
-import ortala from "../Functions/ortala.js";
+import makeCenter from "../Functions/makeCenter.js";
 import {
   correctEncryptedPerson,
   studentIndex,
@@ -18,7 +18,7 @@ const term = terminal.terminal;
 function grading() {
   let isThereStudent = false;
 
-  ortala("");
+  makeCenter("");
 
   const assignedClasses = correctEncryptedPersonObject.relatedClasses;
   let valid = false;
@@ -35,7 +35,7 @@ function grading() {
   console.clear();
 
   if (valid === true) {
-    ortala(`${choosenClass} Class List`);
+    makeCenter(`${choosenClass} Class List`);
 
     for (let i = 0; i < students.length; i++) {
       if (students[i].className === choosenClass) {
@@ -45,9 +45,9 @@ function grading() {
     }
 
     if (isThereStudent === false) {
-      term.red.bold("Bu sinifta henüz hic ögrenci bulunmamaktadir!\n");
+      term.red.bold("There are no students in this class yet!\n");
       term.yellow.bold(
-        "Not vermek icin 1'e ögretmen ekranina dönmek icin 2'ye basiniz:"
+        "Press 1 to grade, press 2 to return to the teacher page:"
       );
       let choise = parseInt(prompt(""));
       console.clear();
@@ -59,9 +59,9 @@ function grading() {
       }
     }
 
-    ortala("");
+    makeCenter("");
   } else {
-    ortala("");
+    makeCenter("");
     console.log();
     term.red.bold("Please enter a valid class name!!!\n");
     console.log();
@@ -115,21 +115,23 @@ function grading() {
 
   console.clear();
   console.log();
-  ortala(
+  makeCenter("");
+  term.green.bold(
     `${
       correctEncryptedPersonBranch.substring(0, 1).toUpperCase() +
       correctEncryptedPersonBranch.substring(1).toLowerCase()
-    } note given successfully`
+    } grade saved successfully...\n`
   );
   console.log();
 
   console.log(
     students[studentIndex].name,
-    `'s ${correctEncryptedPersonBranch} notes:`,
+    `'s ${correctEncryptedPersonBranch} grades:`,
     whichBranch[0],
     whichBranch[1]
   );
-  ortala("");
+  console.log();
+  makeCenter("");
   progress();
   teacherEvents();
 }

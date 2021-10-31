@@ -1,4 +1,4 @@
-import ortala from "../ortala.js";
+import makeCenter from "../makeCenter.js";
 import title from "../selectedPersonTitle.js";
 import unreadMessageWarnings from "../unreadMessageWarning.js";
 
@@ -15,7 +15,7 @@ function teacherOptions(){
     console.log("Press 6 to read your message:");
     console.log("Press 7 to return to the homepage:");
     console.log();
-    ortala("");
+    makeCenter("");
 }
 
 export default teacherOptions;

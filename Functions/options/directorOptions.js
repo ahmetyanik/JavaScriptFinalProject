@@ -1,13 +1,13 @@
 import title from "../selectedPersonTitle.js";
-import ortala from "../ortala.js";
+import makeCenter from "../makeCenter.js";
 import unreadMessageWarnings from "../unreadMessageWarning.js";
 import terminal from "terminal-kit";
 const term = terminal.terminal;
 
 function directorOptions() {
   title();
-  console.log();
   unreadMessageWarnings();
+  console.log();
 
   console.log("Press 1 to register a student:");
   console.log("Press 2 to create new class:");
@@ -21,7 +21,7 @@ function directorOptions() {
   console.log("Press 10 to return to the homepage:");
   console.log();
 
-  ortala("");
+  makeCenter("");
 }
 
 export default directorOptions;

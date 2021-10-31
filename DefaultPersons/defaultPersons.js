@@ -59,12 +59,12 @@ const tomHanks = new Student(
   { math: [3, 0], music: [1, 0], english: [4, 0], history: [2, 0] }
 );
 
-const fatihTerim = new Teacher(
-  "Fatih",
-  "Terim",
+const fabianLehrermann = new Teacher(
+  "Fabian",
+  "Lehrermann",
   "Teacher",
   "12.03.1968",
-  "Istanbul",
+  "New York",
   "math",
   1235,
   ["1a", "1b"]
@@ -137,7 +137,7 @@ const ümitKaran = new Teacher(
 );
 
 const director = [maximMustermann];
-const teachers = [fatihTerim, hakanÜnsal, ümitDavala, hasanSas, hakanSukur,tuncaySanli,ümitKaran];
+const teachers = [fabianLehrermann, hakanÜnsal, ümitDavala, hasanSas, hakanSukur,tuncaySanli,ümitKaran];
 const students = [ahmetYanik, angelinaJolie, bradPitt, tomHanks];
 const allStaff = [...director, ...teachers, ...students];
 const classes = ["1a", "1b", "2a", "2b", "3a", "3b"];

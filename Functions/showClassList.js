@@ -1,4 +1,4 @@
-import ortala from "./ortala.js";
+import makeCenter from "./makeCenter.js";
 import teacherEvents from "./teacherEvents.js";
 import {
   inqueriedClassName,
@@ -14,7 +14,7 @@ const term = terminal.terminal;
 const prompt = ps();
 
 function showClassList() {
-  ortala("");
+  makeCenter("");
   term.yellow.bold("Classes you can choose: ");
   console.log(`${correctEncryptedPersonObject.relatedClasses}`);
   setInqueriedClassName(prompt(`Please write a class name:`));
@@ -30,28 +30,28 @@ function showClassList() {
   }
 
   if (permission === true) {
-    ortala(`${inqueriedClassName.toUpperCase()} CLASS LIST`);
+    makeCenter(`${inqueriedClassName.toUpperCase()} CLASS LIST`);
 
     for (let i = 0; i < students.length; i++) {
       if (students[i].className === inqueriedClassName) {
         students[i].showInfos();
       }
     }
-    ortala("");
+    makeCenter("");
 
     progress();
   } else {
-    ortala("");
+    makeCenter("");
     console.log();
-    term.red.bold(
-      `Wrong choice!!! Please select your assigned classes!\n`
+    term.red.bold(`Wrong choice!!! Please select your assigned classes!\n`);
+    term.yellow.bold(
+      "Press 1 to return to the teacher page, and press 2 to display the class list again...\n"
     );
-    term.yellow.bold("Press 1 to return to the teacher page, and press 2 to display the class list again...\n");
     console.log();
-    ortala("");
+    makeCenter("");
     let choice = parseInt(prompt(""));
     console.clear();
-    
+
     switch (choice) {
       case 1:
         teacherEvents();
@@ -62,9 +62,9 @@ function showClassList() {
         break;
 
       default:
-        ortala("");
+        makeCenter("");
         term.red.bold(`You are being redirected to the teacher page...`);
-        ortala("");
+        makeCenter("");
         teacherEvents();
         break;
     }

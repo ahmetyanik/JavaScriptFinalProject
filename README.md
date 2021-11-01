@@ -4,6 +4,7 @@
 
 - [General info](#general-info)
 - [Preview](#preview)
+- [Some prominent features of the system](#some-prominent-features-of-the-system)
 - [Usage](#usage)
 - [Technologies](#technologies)
 - [Contact](#contact)
@@ -17,6 +18,18 @@ The project is designed as classes, functions, modules, states. In particular, i
 One of the important features of the project is to keep the system running continuously by catching possible error situations.
 
 ## Preview
+
+There are three main groups in the system. These:
+
+     • Director
+     • Teachers
+     • Students.
+
+These people can do their own operations on their own pages. For example, while the director can create a new class, this is not possible for the student.
+
+There are also common operations such as changing passwords, sending messages and accessing personal information.
+
+## Some prominent features of the system
 
 ### Desktop
 
@@ -42,7 +55,7 @@ Password           : 1236
 
 ### Teacher
 
-Teacher Full Name  : Fabian Lehrermann
+Teacher Full Name  : Fabian Lehrermann 
 Password           : 1235
 
 ### Student

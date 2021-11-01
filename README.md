@@ -21,9 +21,9 @@ One of the important features of the project is to keep the system running conti
 
 There are three main groups in the system. These:
 
-     • Director
-     • Teachers
-     • Students.
+     - Director
+     - Teachers
+     - Students.
 
 These people can do their own operations on their own pages. For example, while the director can create a new class, this is not possible for the student.
 

@@ -31,9 +31,9 @@ There are also common operations such as changing passwords, sending messages an
 
 ## Some prominent features of the system
 
-### Desktop
+### New Student Registration
 
-![alt text](src/image/gifs/desktop.gif)
+![alt text](src/image/registernewstudent.gif)
 
 ### Tablet
 ![alt text](src/image/gifs/tablet.gif)

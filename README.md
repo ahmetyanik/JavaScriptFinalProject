@@ -38,7 +38,9 @@ Information of some default characters for quick use:
 Director Full Name : Maxim Mustermann   
 Password           : 1236
 
-#### Teacher
+![alt text](src/image/login_directorpage.gif)
+
+### Teacher
 
 Teacher Full Name  : Fabian Lehrermann
 Password           : 1235

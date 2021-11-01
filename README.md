@@ -42,7 +42,7 @@ Password           : 1236
 
 ### Teacher
 
-Teacher Full Name  : Fabian Lehrermann \n
+Teacher Full Name  : Fabian Lehrermann
 Password           : 1235
 
 ### Student

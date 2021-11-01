@@ -49,12 +49,12 @@ function grading() {
       term.yellow.bold(
         "Press 1 to grade, press 2 to return to the teacher page:"
       );
-      let choise = parseInt(prompt(""));
+      let choice = parseInt(prompt(""));
       console.clear();
 
-      if (choise === 1) {
+      if (choice === 1) {
         grading();
-      } else if (choise === 2) {
+      } else if (choice === 2) {
         teacherEvents();
       }
     }
@@ -125,8 +125,8 @@ function grading() {
   console.log();
 
   console.log(
-    students[studentIndex].name,
-    `'s ${correctEncryptedPersonBranch} grades:`,
+    students[studentIndex].name +"'s" +
+    ` ${correctEncryptedPersonBranch} grades:`,
     whichBranch[0],
     whichBranch[1]
   );

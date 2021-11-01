@@ -25,18 +25,19 @@ class Student extends Person {
     makeCenter(`${this.name} ${this.surname}`);
   
     console.log(`
-  Name          :${this.fullName}
-  Birthday      :${this.birthday}
-  Address       :${this.address}
-  Class Name    :${this.className}
-  Student Number:${this.studentNumber}
+  Name           :${this.fullName}
+  Birthday       :${this.birthday}
+  Address        :${this.address}
+  Class Name     :${this.className}
+  Student Number :${this.studentNumber}
+  E-mail Address :${this.mailAddress}
   `);
   
     makeCenter("");
   };
   
-  Student.prototype.avarageGrade = function () {
-    let avarage = (
+  Student.prototype.averageGrade = function () {
+    let average = (
       (this.notes.math[0] +
         this.notes.math[1] +
         this.notes.music[0] +
@@ -47,7 +48,7 @@ class Student extends Person {
         this.notes.history[1]) /
       8
     ).toFixed(2);
-    return avarage;
+    return average;
   };
 
   export default Student;

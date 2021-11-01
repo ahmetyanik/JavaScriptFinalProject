@@ -16,7 +16,7 @@ const term = terminal.terminal;
 function studentEvents() {
   studentOptions();
 
-  let choice = parseInt(prompt("Select the action you want to do:"));
+  let choice = parseInt(prompt("Select the action you want to do: "));
 
   console.clear();
 

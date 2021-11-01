@@ -24,21 +24,23 @@ function addClass() {
   if (isThere === false) {
     const assignedTeachers = [];
 
-    function choosingTeacher(ders) {
+    function choosingTeacher(lesson) {
       let index = 1;
       const filteredTeachers = [];
 
-      makeCenter(`${ders.toUpperCase()} TEACHERS`);
+      console.log();
+      makeCenter(`${lesson.toUpperCase()} TEACHERS`);
 
       teachers.forEach((teacher) => {
-        if (ders === teacher.branch) {
+        if (lesson === teacher.branch) {
           console.log(`Please enter ${index} to assign ${teacher.fullName}:`);
           filteredTeachers.push(teacher);
           index++;
         }
       });
 
-      let desiredTeacher = parseInt(prompt(`Your choise:`));
+      console.log();
+      let desiredTeacher = parseInt(prompt(`Your choice:`));
 
       filteredTeachers[desiredTeacher - 1].relatedClasses.push(newClass);
 

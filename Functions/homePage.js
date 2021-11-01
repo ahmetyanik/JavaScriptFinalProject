@@ -15,13 +15,13 @@ function homePage() {
   term.blue.bold("Please select your position\n");
   console.log();
   console.log("Director:1");
-  console.log("Teacher:2");
-  console.log("Student:3");
+  console.log("Teacher :2");
+  console.log("Student :3");
   console.log();
 
   makeCenter("");
 
-  let choice = parseInt(prompt("Please select your choise!"));
+  let choice = parseInt(prompt("Please select your choice!"));
 
   console.clear();
 

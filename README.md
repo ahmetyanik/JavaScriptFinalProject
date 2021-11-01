@@ -1,17 +1,20 @@
 ## JAVASCRIPT FINAL PROJECT - SCHOOL SYSTEM
 
-<a href="https://ahmetyanik.github.io/FinalProjekt/index.html" target="_blank"><h3 align="left">Click here for demo</h3></a>
-
 ## Table of Contents
 
 - [General info](#general-info)
 - [Preview](#preview)
+- [Usage](#usage)
 - [Technologies](#technologies)
 - [Contact](#contact)
 
 ## General Info
 
-This is a DCI end of chapter project and a teamwork with Github.
+This is a DCI end of chapter project. This project is an object oriented school system made using javascript programming language.
+
+The project is designed as classes, functions, modules, states. In particular, its modular structure has made the codes reusable and made the system more understandable.
+
+One of the important features of the project is to keep the system running continuously by catching possible error situations.
 
 ## Preview
 
@@ -26,14 +29,30 @@ This is a DCI end of chapter project and a teamwork with Github.
 
 ![alt text](src/image/gifs/mobile.gif)
 
+## Usage
+
+Information of some default characters for quick use:
+
+### Director
+
+Director Full Name : Maxim Mustermann   
+Password           : 1236
+
+#### Teacher
+
+Teacher Full Name  : Fabian Lehrermann
+Password           : 1235
+
+### Student
+
+Student Full Name  : Ahmet Yanik
+Password           : 1234
+
+
 ## Technologies
 
-- HTML
-- CSS
-- SCSS
-- BOOTSTRAP
-- GITHUB
+
 
 ## Contact
 
-Created by (Ghania, Siddik and Ahmet) - feel free to contact us for any inquiries!
+Created by Ahmet Yanik - feel free to contact me for any inquiries!

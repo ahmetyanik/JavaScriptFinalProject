@@ -67,7 +67,11 @@ Password           : 1234
 
 ## Technologies
 
-
+- JavaScript
+- Npm
+- GitHub
+- Terminal-Kit (https://www.npmjs.com/package/terminal-kit)
+- Prompt-Sync (https://www.npmjs.com/package/prompt-sync)
 
 ## Contact
 

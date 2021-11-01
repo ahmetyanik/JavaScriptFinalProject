@@ -35,8 +35,8 @@ There are also common operations such as changing passwords, sending messages an
 
 ![alt text](src/image/registernewstudent.gif)
 
-### Tablet
-![alt text](src/image/gifs/tablet.gif)
+### Adding a new class to the system
+![alt text](src/image/addClass.gif)
 
 ### Mobile
 

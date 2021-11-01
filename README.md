@@ -38,9 +38,10 @@ There are also common operations such as changing passwords, sending messages an
 ### Adding a new class to the system
 ![alt text](src/image/addClass.gif)
 
-### Mobile
+### Message sending and reading
 
-![alt text](src/image/gifs/mobile.gif)
+![alt text](src/image/sendingmessage.gif)
+![alt text](src/image/readingmessage.gif)
 
 ## Usage
 

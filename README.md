@@ -76,4 +76,4 @@ Password           : 1234
 ## Contact
 
 Created by Ahmet Yanik - feel free to contact me for any inquiries!
-ahmetyank4242@gmail.com
+ahmetyanikdev.com

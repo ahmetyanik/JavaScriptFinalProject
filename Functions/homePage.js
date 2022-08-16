@@ -4,7 +4,6 @@ import { setWhoIs } from "../States/states.js";
 
 import ps from "prompt-sync";
 const prompt = ps();
-import "console-success";
 
 import terminal from "terminal-kit";
 const term = terminal.terminal;

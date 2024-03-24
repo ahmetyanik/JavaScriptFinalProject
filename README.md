@@ -47,12 +47,14 @@ There are also common operations such as changing passwords, sending messages an
 
 Information of some default characters for quick use:
 
+
+
+![alt text](src/image/login_directorpage.gif)
+
 ### Director
 
 Director Full Name : Maxim Mustermann   
 Password           : 1236
-
-![alt text](src/image/login_directorpage.gif)
 
 ### Teacher
 
